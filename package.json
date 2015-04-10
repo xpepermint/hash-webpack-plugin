@@ -1,6 +1,6 @@
 {
   "name": "hash-webpack-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Hash manifest file writer plugin for Webpack.",
   "main": "index.js",
   "scripts": {
