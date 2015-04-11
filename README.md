@@ -2,6 +2,8 @@
 
 > Hash manifest file writer plugin for Webpack.
 
+Do you need to integrate Webpack with your [ExpressJS](http://expressjs.com/) app? Check the [express-hash-webpack](https://github.com/xpepermint/express-hash-webpack) plugin.
+
 ## Setup
 
 ```js
