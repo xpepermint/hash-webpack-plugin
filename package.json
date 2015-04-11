@@ -1,6 +1,6 @@
 {
   "name": "hash-webpack-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Hash manifest file writer plugin for Webpack.",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "url": "https://github.com/xpepermint/hash-webpack-plugin/issues"
   },
   "homepage": "https://github.com/xpepermint/hash-webpack-plugin",
-  "devDependencies": {
+  "dependencies": {
     "mkdirp": "^0.5.0"
   }
 }
