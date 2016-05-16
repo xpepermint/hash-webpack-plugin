@@ -7,7 +7,7 @@ Do you need to integrate Webpack with your [ExpressJS](http://expressjs.com/) ap
 ## Setup
 
 ```js
-npm instal --save-dev hash-webpack-plugin
+npm install --save-dev hash-webpack-plugin
 ```
 
 ## Example
