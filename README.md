@@ -19,7 +19,25 @@ var HashPlugin = require('hash-webpack-plugin');
 module.exports = {
   ...
   plugins: [
-    new HashPlugin({ path: './build', fileName: 'hash.txt' })
+    new HashPlugin({ path: './build', fileName: 'hash.txt'})
+  ]
+};
+```
+
+Use the template option if you need to wrap the generated file for easier inclusion in other languages like PHP:
+
+```js
+...
+var HashPlugin = require('hash-webpack-plugin');
+
+module.exports = {
+  ...
+  plugins: [
+    new HashPlugin({
+      path: './build',
+      fileName: 'hash.php',
+      template: '<?php define("WEBPACK_HASH", "%%HASH%%");'
+    })
   ]
 };
 ```
