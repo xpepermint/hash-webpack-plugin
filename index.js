@@ -1,22 +1,33 @@
 var fs = require('fs');
 var path = require('path');
-var mkdirp = require('mkdirp');
 
-module.exports = function(options) {
-  return function() {
+class HashGeneratorPlugin {
+  static defaultOptions = {
+    path: './',
+    fileName: 'hash.txt'
+  }
 
-    var outputPath = options.path || './';
-    var fileName = options.fileName || 'hash.txt';
+  constructor(options = {}) {
+    this.options = { ...HashGeneratorPlugin.defaultOptions, ...options };
+  }
 
-    mkdirp(outputPath, function(err) {
-      if (err) return console.log('Error creating folder:', err);
+  apply(compiler) {
+    compiler.hooks.done.tap(
+      'HashGeneratorPlugin', (stats) => {
+        var outputPath = this.options.path || './';
+        var fileName = this.options.fileName || 'hash.txt';
 
-      this.plugin('done', function(stats) {
+        if (!fs.existsSync(outputPath)){
+          fs.mkdirSync(outputPath, { recursive: true });
+        }
+
         fs.writeFileSync(
           path.join(outputPath, fileName),
           stats.hash
-        );
-      });
-    }.bind(this));
-  };
-};
+        )
+      }
+    );
+  }
+}
+
+module.exports = HashGeneratorPlugin;
